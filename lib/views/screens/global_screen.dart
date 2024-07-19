@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../constants/text_style.dart';
 class GlobalScreen extends StatelessWidget {
-  const GlobalScreen({super.key});
+   GlobalScreen({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,8 @@ class GlobalScreen extends StatelessWidget {
                 margin: const EdgeInsets.all(8.0),
                 child: Card(
                   color : Colors.greenAccent,
-                  child: Text("hello"),
+                  child: Text("hello word"),
+
                 ),
               );
             },

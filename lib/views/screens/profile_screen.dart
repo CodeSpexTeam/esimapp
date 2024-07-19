@@ -68,7 +68,7 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.account_circle, color: Colors.red,
-                    size: 70,
+                    size: 60,
                   ),
                   SizedBox(
                     width: 10,
@@ -85,7 +85,7 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   ),
                   Container(
-                      width: 100,
+                      width: 80,
                       alignment: Alignment.centerRight,
                       child: IconButton(
                           onPressed: () {},

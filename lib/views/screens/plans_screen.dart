@@ -1,7 +1,40 @@
+import 'package:esimapp/constants/text_style.dart';
 import 'package:flutter/material.dart';
 
 class PlansScreen extends StatelessWidget {
    PlansScreen({super.key});
+
+   final List<Map<String, dynamic>> cards1 = [
+     {
+       'destinationsName':'Europe',
+       'pack':32,
+       'validDays':7,
+       'price':40.2,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Europe',
+       'pack':32,
+       'validDays':45,
+       'price':17,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Europe',
+       'pack':32,
+       'validDays':30,
+       'price':160,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Europe',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+
+   ];
 
    var colors = [
      {'color': Colors.green,},
@@ -26,8 +59,10 @@ class PlansScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: Text("Plans"),
+        elevation: 0,
         backgroundColor: Colors.white,
+        title: Text("Plans", style: RTextStyle.title1,),
+
       ),
 
       body: Container(
@@ -51,7 +86,56 @@ class PlansScreen extends StatelessWidget {
             margin: const EdgeInsets.all(8.0),
             child: Card(
               color : colors[count]['color'],
-              child: Text("hello"),
+              child: Container(
+                padding: EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(Icons.ac_unit_rounded),
+                            Text("Europe")
+                          ],
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text("1 GB", style: RTextStyle.title1,),
+                        Text("VALID FOR 30 DAYS")
+                      ],
+
+                    )),
+                    Container(child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(Icons.network_cell_rounded),
+                            Text(" View All"),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(onPressed: (){}, child: Row(
+                          children: [
+                            Icon(Icons.monetization_on_outlined),
+                            Text("10.0 "),
+                            Text("BUY NOW")
+
+
+                          ],
+                        ))
+                      ],
+
+                    )),
+
+                  ],
+                ),
+              ),
             ),
           );
         },
