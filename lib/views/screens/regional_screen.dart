@@ -52,7 +52,7 @@ class RegionalScreen extends StatelessWidget {
               child: Card(
                 color : cards[index]['color'],
                 child: ElevatedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PlansScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PlansScreen(destinationsName:cards[index]['destinationsName'].toString())));
                 },
 
                   style: ButtonStyle(

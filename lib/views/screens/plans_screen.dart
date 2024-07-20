@@ -2,9 +2,9 @@ import 'package:esimapp/constants/text_style.dart';
 import 'package:flutter/material.dart';
 
 class PlansScreen extends StatelessWidget {
-   PlansScreen({super.key});
-
-   final List<Map<String, dynamic>> cards1 = [
+   final String destinationsName;
+   PlansScreen({super.key, required this.destinationsName});
+   static List<Map<String, dynamic>> card = [
      {
        'destinationsName':'Europe',
        'pack':32,
@@ -33,20 +33,101 @@ class PlansScreen extends StatelessWidget {
        'price':320,
        'currencyType': 'dollar'
      },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
+     {
+       'destinationsName':'Asia',
+       'pack':32,
+       'validDays':60,
+       'price':320,
+       'currencyType': 'dollar'
+     },
 
    ];
 
-   var colors = [
-     {'color': Colors.green,},
-     {'color': Colors.redAccent,},
-     {'color': Colors.blueAccent,},
-     // {'color': Colors.white70,},
-     // {'color': Colors.greenAccent,},
-     // {'color': Colors.lightGreenAccent,},
 
-   ];
-
-   var count = 0;
 
   final List<Map<String, dynamic>> cards = [
     {
@@ -57,6 +138,38 @@ class PlansScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
+    List<Map<String, dynamic>> cards1 = card.where((card)=> card['destinationsName'] == destinationsName).toList();
+    // List<Map<String, dynamic>> cards1 = card.where((card)=> card['destinationsName'] == 'Asia').toList();
+
+    var colors = [
+      {'color': Colors.green,},
+      {'color': Colors.redAccent,},
+      {'color': Colors.blueAccent,},
+      {'color': Colors.white70,},
+      {'color': Colors.greenAccent,},
+      {'color': Colors.lightGreenAccent,},
+
+    ];
+    var count = 0;
+
+    if(cards1.isEmpty){
+      return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          title: Text("Plans", style: RTextStyle.title1,),
+
+        ),
+
+        body: const Center(child: Text("There is no plans available! ", style: RTextStyle.subTitle1,)),
+
+      );
+    }
+
+
+
     return  Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -71,7 +184,7 @@ class PlansScreen extends StatelessWidget {
         margin: EdgeInsets.only(left: 10, top: 10, right: 10),
         child: ListView.builder(
         scrollDirection: Axis.vertical,
-        itemCount: 10,
+        itemCount: cards1.length,
         itemBuilder: (context, index) {
 
           if(colors.length-1==count){
@@ -97,7 +210,7 @@ class PlansScreen extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.ac_unit_rounded),
-                            Text("Europe")
+                            Text(cards1[index]['destinationsName'])
                           ],
                         ),
                         SizedBox(
